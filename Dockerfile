@@ -44,9 +44,9 @@ ENV VERSION=1.16.1.02 \
     SERVER_PORT=19132 
 
 # 这里直接下载了
-RUN DOWNLOAD_URL=https://minecraft.azureedge.net/bin-linux/bedrock-server-${VERSION}.zip \
-    TMP_ZIP=/tmp/$(basename "${DOWNLOAD_URL}")
-    
+RUN DOWNLOAD_URL=https://minecraft.azureedge.net/bin-linux/bedrock-server-${VERSION}.zip
+RUN TMP_ZIP=/tmp/$(basename "${DOWNLOAD_URL}")
+
 RUN curl -o ${TMP_ZIP} -fsSL ${DOWNLOAD_URL}
 
 HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host localhost --port $SERVER_PORT
