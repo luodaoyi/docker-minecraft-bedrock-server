@@ -1,14 +1,42 @@
-# 为了方便中国朋友使用我改了下dockerfile 执行的时候不需要再下载，方便开服 请一定要阅读下面说明
+[![Docker Pulls](https://img.shields.io/docker/pulls/luodaoyi/minecraft-bedrock-server.svg)](https://hub.docker.com/r/luodaoyi/minecraft-bedrock-server/)
+[![GitHub Issues](https://img.shields.io/github/issues-raw/luodaoyi/docker-minecraft-bedrock-server.svg)](https://github.com/luodaoyi/docker-minecraft-bedrock-server/issues)
+[![Build](https://github.com/luodaoyi/docker-minecraft-bedrock-server/workflows/Build/badge.svg)](https://github.com/luodaoyi/docker-minecraft-bedrock-server/actions?query=workflow%3ABuild)
+
+
+## 为了方便中国朋友使用我改了下dockerfile 执行的时候不需要再下载，方便开服 请一定要阅读下面说明
 >注意！ 请一定不要指定环境变量 VERSION=xxx 缺点是不能灵活切换版本，但是切换版本要下载 国内又下载不了 所以你直接指定docker images的tag就行了
 
->PS： 如果懒得折腾可以来我的服务器  mc.ptrace.cn
+>PS： 如果懒得折腾可以来我的服务器  mc.ptrace.cn:19132
 >交流qq群： 1140238048
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/itzg/minecraft-bedrock-server.svg)](https://hub.docker.com/r/itzg/minecraft-bedrock-server/)
-[![GitHub Issues](https://img.shields.io/github/issues-raw/itzg/docker-minecraft-bedrock-server.svg)](https://github.com/itzg/docker-minecraft-bedrock-server/issues)
-[![Build](https://github.com/itzg/docker-minecraft-bedrock-server/workflows/Build/badge.svg)](https://github.com/itzg/docker-minecraft-bedrock-server/actions?query=workflow%3ABuild)
-[![Discord](https://img.shields.io/discord/660567679458869252)](https://discord.gg/ScbTrAw)
-[![](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-orange.svg)](https://www.buymeacoffee.com/itzg)
+### 直接使用docker-compose 部署
+
+```yaml
+version: '3.8'
+services:
+  bds:
+    image: luodaoyi/minecraft-bedrock-server
+    environment:
+      EULA: "TRUE"
+      GAMEMODE: survival
+      DIFFICULTY: easy
+      SERVER_NAME: 'Evolution World'
+      SERVER_PORT: 19132
+      MAX_PLAYERS: 100
+      MAX_THREADS: 8
+      ALLOW_CHEATS: "FALSE"
+      LEVEL_NAME: '20200714'
+    ports:
+      - 19132:19132/udp
+    volumes:
+      - bds:/data
+    restart: always
+    stdin_open: true
+    tty: true
+
+volumes:
+  bds:
+```
 
 ## Quickstart
 
