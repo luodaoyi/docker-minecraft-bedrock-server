@@ -89,6 +89,7 @@ set -e
 rm -rf bedrock_server *.so release-notes.txt bedrock_server_how_to.html valid_known_packs.json premium_cache 2> /dev/null
 
 bkupDir=backup-pre-${VERSION}
+rm -rf $bkupDir
 for d in behavior_packs definitions minecraftpe resource_packs structures treatments world_templates
 do
   if [ -d $d ]; then
