@@ -94,7 +94,7 @@ do
   if [ -d $d ]; then
     mkdir -p $bkupDir
     echo "Backing up $d into $bkupDir"
-    mv $d $bkupDir
+    mv -f $d $bkupDir
   fi
 done
 
