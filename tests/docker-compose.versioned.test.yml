@@ -11,7 +11,7 @@ services:
       context: ..
     environment:
       EULA: "TRUE"
-      VERSION: "${BDS_VERSION}"
+      # VERSION: "${BDS_VERSION}"
     volumes:
     - mc:/data
 
