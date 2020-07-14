@@ -40,6 +40,7 @@ COPY property-definitions.json /etc/bds-property-definitions.json
 # https://minecraft.gamepedia.com/Bedrock_Edition_1.12.0
 # https://minecraft.gamepedia.com/Bedrock_Edition_1.13.0
 # https://minecraft.gamepedia.com/Bedrock_Edition_1.14.0
+# https://minecraft.gamepedia.com/Bedrock_Edition_1.16.1
 ENV VERSION=1.16.1.02 \
     SERVER_PORT=19132 
 
