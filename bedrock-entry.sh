@@ -65,26 +65,45 @@ set -e
 #     exit 2
 #   fi
 
-  # remove only binaries and some docs, to allow for an upgrade of those
-  rm -rf bedrock_server *.so release-notes.txt bedrock_server_how_to.html valid_known_packs.json premium_cache 2> /dev/null
+#   # remove only binaries and some docs, to allow for an upgrade of those
+#   rm -rf bedrock_server *.so release-notes.txt bedrock_server_how_to.html valid_known_packs.json premium_cache 2> /dev/null
 
-  bkupDir=backup-pre-${VERSION}
-  for d in behavior_packs definitions minecraftpe resource_packs structures treatments world_templates
-  do
-    if [ -d $d ]; then
-      mkdir -p $bkupDir
-      echo "Backing up $d into $bkupDir"
-      mv $d $bkupDir
-    fi
-  done
+#   bkupDir=backup-pre-${VERSION}
+#   for d in behavior_packs definitions minecraftpe resource_packs structures treatments world_templates
+#   do
+#     if [ -d $d ]; then
+#       mkdir -p $bkupDir
+#       echo "Backing up $d into $bkupDir"
+#       mv $d $bkupDir
+#     fi
+#   done
 
-  # ... overwrite all game files, except config files
-  unzip -q ${TMP_ZIP} -x $(ls server.properties whitelist.json permissions.json 2> /dev/null)
-  rm ${TMP_ZIP}
+#   # ... overwrite all game files, except config files
+#   unzip -q ${TMP_ZIP} -x $(ls server.properties whitelist.json permissions.json 2> /dev/null)
+#   rm ${TMP_ZIP}
 
-  chmod +x bedrock_server
-  mv bedrock_server bedrock_server-${VERSION}
-fi
+#   chmod +x bedrock_server
+#   mv bedrock_server bedrock_server-${VERSION}
+# fi
+
+rm -rf bedrock_server *.so release-notes.txt bedrock_server_how_to.html valid_known_packs.json premium_cache 2> /dev/null
+
+bkupDir=backup-pre-${VERSION}
+for d in behavior_packs definitions minecraftpe resource_packs structures treatments world_templates
+do
+  if [ -d $d ]; then
+    mkdir -p $bkupDir
+    echo "Backing up $d into $bkupDir"
+    mv $d $bkupDir
+  fi
+done
+
+# ... overwrite all game files, except config files
+unzip -q ${TMP_ZIP} -x $(ls server.properties whitelist.json permissions.json 2> /dev/null)
+rm ${TMP_ZIP}
+
+chmod +x bedrock_server
+mv bedrock_server bedrock_server-${VERSION}
 
 set-property --file server.properties --bulk /etc/bds-property-definitions.json
 
