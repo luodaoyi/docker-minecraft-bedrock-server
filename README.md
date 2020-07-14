@@ -1,3 +1,9 @@
+# 为了方便中国朋友使用我改了下dockerfile 执行的时候不需要再下载，方便开服 请一定要阅读下面说明
+>注意！ 请一定不要指定环境变量 VERSION=xxx 缺点是不能灵活切换版本，但是切换版本要下载 国内又下载不了 所以你直接指定docker images的tag就行了
+
+>PS： 如果懒得折腾可以来我的服务器  mc.ptrace.cn
+>交流qq群： 1140238048
+
 [![Docker Pulls](https://img.shields.io/docker/pulls/itzg/minecraft-bedrock-server.svg)](https://hub.docker.com/r/itzg/minecraft-bedrock-server/)
 [![GitHub Issues](https://img.shields.io/github/issues-raw/itzg/docker-minecraft-bedrock-server.svg)](https://github.com/itzg/docker-minecraft-bedrock-server/issues)
 [![Build](https://github.com/itzg/docker-minecraft-bedrock-server/workflows/Build/badge.svg)](https://github.com/itzg/docker-minecraft-bedrock-server/actions?query=workflow%3ABuild)
